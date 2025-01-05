@@ -5,3 +5,7 @@
 + 개인 위키 운영<br>
   + https://dainwiki.com<br>
   + 개인위키는 AWS LightSail $3.5 요금제 활용중
+
+# 사용법
++ docker, docker compose 설치
++ docker-compose up
