@@ -10,5 +10,4 @@
 + docker, docker compose 설치
 + docker-compose up
 
-
-![image](https://github.com/user-attachments/assets/e9a779d2-4fab-4565-aace-0b2099e8d98e)
+일끝나고 수정
