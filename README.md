@@ -19,7 +19,7 @@
 
   
   
-# 사용법🐳
+# 🐳 사용법
 + docker, docker compose 설치
 + docker-compose up
 <pre><code>docker-compose up -d</code></pre>
@@ -33,5 +33,5 @@
 <pre><code>./scripts/restore.sh ./backups/{{filename}}.sql</code></pre>
 
 
-# 인프라
+# ⚙️ 인프라
 
