@@ -1,0 +1,39 @@
+services:
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:latest
+    container_name: bookstack
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - APP_KEY=base64:e+a+iNSPR1dPRb1z0ujLve2XTyqmrifWza/0ssF1rp4=
+      - APP_LANG=kr
+      - TZ=Asia/Seoul
+      - APP_URL=https://dainwiki.com
+      - DB_HOST=bookstack_db
+      - DB_DATABASE=bookstack
+      - DB_USER=bookstack
+      - DB_PASS=LhiUtL4TtcCUPxE9kpo7
+    volumes:
+      - ./bookstack_data:/config
+    depends_on:
+      - bookstack_db
+    networks:
+      - bookstack_net
+
+  bookstack_db:
+    image: mariadb:10.4
+    container_name: bookstack_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=bookstack
+      - MYSQL_USER=bookstack
+      - MYSQL_PASSWORD=LhiUtL4TtcCUPxE9kpo7
+    volumes:
+      - ./db_data:/var/lib/mysql
+    networks:
+      - bookstack_net
+
+networks:
+  bookstack_net:
+    driver: bridge

@@ -1,0 +1,16 @@
+# Docker volume data (do NOT upload to GitHub)
+db_data/
+bookstack_data/
+
+# Environment config
+.env
+
+# OS/Editor junk files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# VSCode settings (if used)
+.vscode/
