@@ -12,13 +12,17 @@ services:
       - DB_HOST=bookstack_db
       - DB_DATABASE=bookstack
       - DB_USER=bookstack
-      - DB_PASS=LhiUtL4TtcCUPxE9kpo7
+      - DB_PASS=MySecret123!
     volumes:
       - ./bookstack_data:/config
     depends_on:
       - bookstack_db
     networks:
       - bookstack_net
+    ports:
+      - "80:80"
+      - "443:443"
+
 
   bookstack_db:
     image: mariadb:10.4
@@ -28,7 +32,7 @@ services:
       - MYSQL_ROOT_PASSWORD=rootpassword
       - MYSQL_DATABASE=bookstack
       - MYSQL_USER=bookstack
-      - MYSQL_PASSWORD=LhiUtL4TtcCUPxE9kpo7
+      - MYSQL_PASSWORD=MySecret123!
     volumes:
       - ./db_data:/var/lib/mysql
     networks:
