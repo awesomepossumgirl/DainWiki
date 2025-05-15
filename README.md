@@ -1,19 +1,18 @@
 ## DainWiki
 
 - 📌 **개인 위키 프로젝트** (시작일: 2025.01.05~)
+  - http://dainwiki.com 
 - BookStack 간편하게 사용하기 위한 초기 설정 버전
 - 목적: 트러블슈팅, 개발 지식 문서화
 - **추후 협업 시 지식 공유 기반 커뮤니케이션 문제 해결** 및 **DB 그룹 관련 데이터 통합**  
 - Docker로 배포 및 백업  
-- 개인 위키 운영  
-  - http://dainwiki.com 
 
 ## 기술스택
 
 - **Frontend**: BookStack (Laravel 기반 Wiki 플랫폼) API
 - **Backend**: MariaDB  
 - **DevOps**: Docker, AWS
-    ▸ 개인위키는 AWS LightSail $12 요금제 활용중
+   - 개인위키는 AWS LightSail $12 요금제 활용중
 
   
 ## 주요 기능
