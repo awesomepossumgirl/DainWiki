@@ -30,11 +30,13 @@
 ```bash
 📁 DainWiki/
 ├── 📁 bookstack/         # BookStack 컨테이너 설정 및 데이터
+│   └── ...                # 도커 이미지에서 마운트됨
 ├── 📁 bookstack_db/      # MariaDB 데이터
+│   └── ...                  # (.frm, .ibd 등 DB 파일들)
 ├── 📁 certs/             # 인증서 저장소 (자동 생성됨)
 ├── 📁 html/              # nginx 기본 페이지 저장소
 ├── 📁 vhost.d/           # 가상 호스트 설정 (자동 생성됨)
-├── docker-compose.yml   # 전체 도커 설정
+├── 📄 docker-compose.yml   # 전체 도커 설정
 ```
 
 
