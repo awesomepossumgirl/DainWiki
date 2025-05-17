@@ -59,7 +59,7 @@ docker-compose up -d
 - crontab에 scripts/backup_and_git_push.sh 실행하도록 설정
 ```
 crontab -e
-0 */3 * * * /path/to/bookstack/db-group-bookstack/scripts/backup_and_git_push.sh >> /path/to/bookstack/db-group-bookstack/auto_backup.log 2>&1
+0 3 * * 0 /home/ubuntu/DainWiki/scripts/backup_and_git_push.sh >> /home/ubuntu/DainWiki/auto_backup.log 2>&1
 ```
 
 ## 복구
