@@ -23,6 +23,7 @@
 
 
 ## 프로젝트 구조
+- 전체 디렉토리 구조(Docker 기반 BookStack + MariaDB 구성 기준)
 - HTTPS 접속용
   - `cert/`, `html/`, `vhost.d/`는 SSL와 리버스 프록시용
 
