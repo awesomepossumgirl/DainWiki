@@ -22,6 +22,21 @@
 - 협업 대비 문서 구조 설계
 
 
+## 프로젝트 구조
+- HTTPS 접속용
+  - `cert/`, `html/`, `vhost.d/`는 SSL와 리버스 프록시용
+
+```bash
+📁 DainWiki/
+├── 📁 bookstack/         # BookStack 컨테이너 설정 및 데이터
+├── 📁 bookstack_db/      # MariaDB 데이터
+├── 📁 certs/             # 인증서 저장소 (자동 생성됨)
+├── 📁 html/              # nginx 기본 페이지 저장소
+├── 📁 vhost.d/           # 가상 호스트 설정 (자동 생성됨)
+├── docker-compose.yml   # 전체 도커 설정
+```
+
+
 ## 사용법
 
 - docker, docker compose 설치  
