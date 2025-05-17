@@ -57,9 +57,15 @@ docker-compose up -d
 
 ## 자동 백업
 - crontab에 scripts/backup_and_git_push.sh 실행하도록 설정
-```
-crontab -e
+- 터미널에서 `crontab -e`
+- 맨 아래에 아래 명령어 추가(매주 일요일 3시)
+```bash
 0 3 * * 0 /home/ubuntu/DainWiki/scripts/backup_and_git_push.sh >> /home/ubuntu/DainWiki/auto_backup.log 2>&1
+```
+- 저장 후 종료(`Ctrl+O` → `Enter` → `Ctrl+X`)
+- 확인
+```bash
+crontab -l
 ```
 
 ## 복구
