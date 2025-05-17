@@ -1,4 +1,38 @@
+version: '3'
+
 services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs
+      - ./vhost.d:/etc/nginx/vhost.d
+      - ./html:/usr/share/nginx/html
+    networks:
+      - bookstack_net
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    restart: always
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+      - DEFAULT_EMAIL=your@email.com
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./certs:/etc/nginx/certs
+      - ./vhost.d:/etc/nginx/vhost.d
+      - ./html:/usr/share/nginx/html
+    depends_on:
+      - nginx-proxy
+    networks:
+      - bookstack_net
+
   bookstack:
     image: lscr.io/linuxserver/bookstack:latest
     container_name: bookstack
@@ -13,16 +47,15 @@ services:
       - DB_DATABASE=bookstack
       - DB_USER=bookstack
       - DB_PASS=MySecret123!
+      - VIRTUAL_HOST=dainwiki.com
+      - LETSENCRYPT_HOST=dainwiki.com
+      - LETSENCRYPT_EMAIL=your@email.com
     volumes:
       - ./bookstack_data:/config
     depends_on:
       - bookstack_db
     networks:
       - bookstack_net
-    ports:
-      - "80:80"
-      - "443:443"
-
 
   bookstack_db:
     image: mariadb:10.4
@@ -41,3 +74,4 @@ services:
 networks:
   bookstack_net:
     driver: bridge
+
